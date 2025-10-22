@@ -1,11 +1,12 @@
-#import "title-page.typ" : title-page
+#import "template/basic-wipro.typ": basic-wipro
 
 
-#title-page(
-  logo: "images/logo.svg",
+#show: doc => basic-wipro(
+  logo: image("images/logo.svg", width: 80%),
   title: "My title",
   students: (
-        "Max Muster", "Martina Muster"
+    "Max Muster",
+    "Martina Muster",
   ),
   year: "2025",
   institution: "HSLU",
@@ -15,4 +16,30 @@
   client: "Client",
   public: true,
   secret: false,
+  doc,
 )
+= First
+#lorem(150)
+
+== Second
+#lorem(150)
+
+=== Third
+#lorem(150)
+
+==== Fourth
+
+#lorem(150)
+= A
+#lorem(150)
+
+== B
+#lorem(150)
+
+=== C
+#lorem(150)
+
+==== D
+
+#lorem(150)
+
