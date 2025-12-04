@@ -1,5 +1,8 @@
 #import "template/basic-wipro.typ": basic-wipro
 
+#let abstract = [
+  HEllo world
+]
 
 #show: doc => basic-wipro(
   logo: image("images/logo.svg", width: 80%),
@@ -16,6 +19,7 @@
   client: "Client",
   public: true,
   secret: false,
+  abstract,
   doc,
 )
 = First

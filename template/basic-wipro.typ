@@ -11,6 +11,7 @@
   client: "",
   public: false,
   secret: false,
+  abstract,
   doc,
 ) = {
   set page(numbering: none)
@@ -28,9 +29,9 @@
     public: public,
     secret: secret,
   )
+  counter(page).update(1)
 
 
-  set heading(numbering: "1.1.1", outlined: true)
   set page(
     footer: context [
       #align(
@@ -43,9 +44,19 @@
 
     ],
   )
-
-  counter(page).update(1)
-  outline()
+  abstract
   pagebreak()
+  outline(depth: 3)
+
+  set heading(numbering: "1.1.1", outlined: true)
+  show heading: it => {
+    if (it.level >= 3) {
+      block(it.body)
+    } else {
+      block(counter(heading).display() + " " + it.body)
+    }
+  }
+  pagebreak()
+
   show: doc
 }
