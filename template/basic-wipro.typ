@@ -13,6 +13,10 @@
   secret: false,
   abstract,
   doc,
+  bib: "",
+  abbr: "",
+  imgol: "",
+  tabol: "",
 ) = {
   set page(numbering: none)
   set heading(outlined: false)
@@ -58,5 +62,6 @@
   }
   pagebreak()
 
+  doc = doc + pagebreak() + abbr + bib + imgol + tabol
   show: doc
 }
