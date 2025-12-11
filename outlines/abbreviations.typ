@@ -1,8 +1,3 @@
-#set heading(numbering: none) // Disable numbering for this chapter
-#show heading: it => {
-    block(it.body)
-}
-
 = Abbreviations
 #table( // This table is not a figure to avoid being listed in the Tableoutline
   columns: (auto, auto),

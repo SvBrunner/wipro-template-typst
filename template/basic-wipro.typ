@@ -62,7 +62,17 @@
   }
   pagebreak()
 
-  let out = doc 
-  if (abbr != "" or bib != "" or imgol != "" or tabol != "") {out += pagebreak() + abbr + bib + imgol + tabol}
-  show: out
+  doc
+  
+  if (abbr != "" or bib != "" or imgol != "" or tabol != "") {
+    pagebreak()
+    set heading(numbering: none)
+    show heading: it => {
+    block(it.body)
+  }
+    if abbr != "" { abbr }
+    if bib != "" { bib }
+    if imgol != "" { imgol }
+    if tabol != "" { tabol }
+  }
 }

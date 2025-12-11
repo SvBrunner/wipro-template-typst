@@ -79,7 +79,7 @@ Here is an Example on how to include an image which is also listed in the Imageo
   image("/images/logo.svg", width: 50%),
 )
 = Source Example
-This is based on a source @source-1
+This is based on a source @source-1 // This requires a bibliography.yaml file with an entry with the ID "source-1".
 Sources will automatically appear if they are cited.
 Add them to `bibliography.yaml`
 
