@@ -13,6 +13,10 @@
   secret: false,
   abstract,
   doc,
+  bib: "",
+  abbr: "",
+  imgol: "",
+  tabol: "",
 ) = {
   set page(numbering: none)
   set heading(outlined: false)
@@ -58,5 +62,17 @@
   }
   pagebreak()
 
-  show: doc
+  doc
+  
+  if (abbr != "" or bib != "" or imgol != "" or tabol != "") {
+    pagebreak()
+    set heading(numbering: none)
+    show heading: it => {
+    block(it.body)
+  }
+    if abbr != "" { abbr }
+    if bib != "" { bib }
+    if imgol != "" { imgol }
+    if tabol != "" { tabol }
+  }
 }

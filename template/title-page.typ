@@ -3,15 +3,17 @@
   v(.25em)
 }
 
-#let checkbox(info: "", checked: false) = {
-  if checked [
-    ☑
-  ] else [
-    ☐
-  ]
-  info
-  linebreak()
-}
+#let checkbox(info: "", checked: false) = box[
+    #box(
+        width: 1em,
+        height: 1em,
+        stroke: 0.5pt + black,
+        inset: 0.1em,
+        baseline: 0.15em
+    )[#if checked [#text(size: 0.8em)[✓]] else [] ]
+    #h(0.3em)
+    #info
+]
 
 
 #let signature() = {
@@ -69,8 +71,9 @@
     *Codierung / Klassifizierung der Arbeit:*
   ]
   linebreak()
-  checkbox(info: "Öffentlich (Normalfall)", checked: public)
-  checkbox(info: "Vertraulich", checked: secret)
+  checkbox(info: "Öffentlich (Normalfall) ", checked: public)
+  linebreak()
+  checkbox(info: "Vertraulich ", checked: secret)
 
   v(2em)
 
