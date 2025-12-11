@@ -62,6 +62,7 @@
   }
   pagebreak()
 
-  doc = doc + pagebreak() + abbr + bib + imgol + tabol
-  show: doc
+  let out = doc 
+  if (abbr != "" or bib != "" or imgol != "" or tabol != "") {out += pagebreak() + abbr + bib + imgol + tabol}
+  show: out
 }
