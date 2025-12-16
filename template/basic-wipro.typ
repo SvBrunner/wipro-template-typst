@@ -17,6 +17,7 @@
   abbr: "",
   imgol: "",
   tabol: "",
+  ai: "",
 ) = {
   set page(numbering: none)
   set heading(outlined: false)
@@ -54,25 +55,39 @@
 
   set heading(numbering: "1.1.1", outlined: true)
   show heading: it => {
-    if (it.level >= 3) {
+    if (it.level >= 4) {
       block(it.body)
     } else {
       block(counter(heading).display() + " " + it.body)
     }
   }
-  pagebreak()
 
   doc
-  
+
   if (abbr != "" or bib != "" or imgol != "" or tabol != "") {
-    pagebreak()
     set heading(numbering: none)
     show heading: it => {
-    block(it.body)
-  }
-    if abbr != "" { abbr }
-    if bib != "" { bib }
-    if imgol != "" { imgol }
-    if tabol != "" { tabol }
+      block(it.body)
+    }
+    if abbr != "" {
+      pagebreak()
+      abbr
+    }
+    if bib != "" {
+      pagebreak()
+      bib
+    }
+    if imgol != "" {
+      pagebreak()
+      imgol
+    }
+    if tabol != "" {
+      pagebreak()
+      tabol
+    }
+    if ai != "" {
+      pagebreak()
+      ai
+    }
   }
 }
