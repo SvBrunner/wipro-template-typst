@@ -4,15 +4,15 @@
 }
 
 #let checkbox(info: "", checked: false) = box[
-    #box(
-        width: 1em,
-        height: 1em,
-        stroke: 0.5pt + black,
-        inset: 0.1em,
-        baseline: 0.15em
-    )[#if checked [#text(size: 0.8em)[✓]] else [] ]
-    #h(0.3em)
-    #info
+  #box(
+    width: 1em,
+    height: 1em,
+    stroke: 0.5pt + black,
+    inset: 0.1em,
+    baseline: 0.15em,
+  )[#if checked [#text(size: 0.8em)[✓]] else [] ]
+  #h(0.3em)
+  #info
 ]
 
 
@@ -38,6 +38,7 @@
   client: "",
   public: false,
   secret: false,
+  scanned-title-page: none,
 ) = {
   grid(
     columns: (1fr, 1fr),
@@ -48,55 +49,60 @@
   )
   pagebreak()
 
-  text()[= Wirtschaftsprojekt an der Hochschule Luzern - Informatik]
-  v(1em)
 
-  document-property(title: "Titel", info: title)
+  if scanned-title-page != none {
+    scanned-title-page
+  } else {
+    text()[= Wirtschaftsprojekt an der Hochschule Luzern - Informatik]
+    v(1em)
 
-  for student in students [
-    #document-property(title: "Student", info: student)
-  ]
+    document-property(title: "Titel", info: title)
 
-  document-property(title: "Studiengang", info: study-program)
-
-  document-property(title: "Jahr", info: year)
-  document-property(title: "Betreuungsperson", info: supervisor)
-  document-property(title: "Expertenperson", info: expert)
-  document-property(title: "Auftraggeberin / Auftraggeber", info: client)
-
-  v(.5em)
-
-  text()[
-
-    *Codierung / Klassifizierung der Arbeit:*
-  ]
-  linebreak()
-  checkbox(info: "Öffentlich (Normalfall) ", checked: public)
-  linebreak()
-  checkbox(info: "Vertraulich ", checked: secret)
-
-  v(2em)
-
-  text()[
-
-    *Eidesstattliche Erklärung*
-
-    Ich erkläre hiermit, dass ich/wir die vorliegende Arbeit selbständig und ohne unerlaubte fremde Hilfe angefertigt haben, alle verwendeten Quellen, Literatur und andere Hilfsmittel angegeben haben, wörtlich oder inhaltlich entnommene Stellen als solche kenntlich gemacht haben, das Vertraulichkeitsinteresse des Auftraggebers wahren und die Urheberrechtsbestimmungen der Hochschule Luzern respektieren werden.
-  ]
-
-
-  signature()
-  signature()
-
-  v(1fr)
-
-
-  text(style: "italic")[
-    Geistiges Eigentum gemäss der
-    #link("https://srl.lu.ch/app/de/texts_of_law/521/versions/3884")[
-      #underline()[ Studienordnung]
+    for student in students [
+      #document-property(title: "Student", info: student)
     ]
-    für die Ausbildung an der Hochschule Luzern, FH Zentralschweiz
-  ]
+
+    document-property(title: "Studiengang", info: study-program)
+
+    document-property(title: "Jahr", info: year)
+    document-property(title: "Betreuungsperson", info: supervisor)
+    document-property(title: "Expertenperson", info: expert)
+    document-property(title: "Auftraggeberin / Auftraggeber", info: client)
+
+    v(.5em)
+
+    text()[
+
+      *Codierung / Klassifizierung der Arbeit:*
+    ]
+    linebreak()
+    checkbox(info: "Öffentlich (Normalfall) ", checked: public)
+    linebreak()
+    checkbox(info: "Vertraulich ", checked: secret)
+
+    v(2em)
+
+    text()[
+
+      *Eidesstattliche Erklärung*
+
+      Ich erkläre hiermit, dass ich/wir die vorliegende Arbeit selbständig und ohne unerlaubte fremde Hilfe angefertigt haben, alle verwendeten Quellen, Literatur und andere Hilfsmittel angegeben haben, wörtlich oder inhaltlich entnommene Stellen als solche kenntlich gemacht haben, das Vertraulichkeitsinteresse des Auftraggebers wahren und die Urheberrechtsbestimmungen der Hochschule Luzern respektieren werden.
+    ]
+
+
+    signature()
+    signature()
+
+    v(1fr)
+
+
+    text(style: "italic")[
+      Geistiges Eigentum gemäss der
+      #link("https://srl.lu.ch/app/de/texts_of_law/521/versions/3884")[
+        #underline()[ Studienordnung]
+      ]
+      für die Ausbildung an der Hochschule Luzern, FH Zentralschweiz
+    ]
+  }
   pagebreak()
 }

@@ -11,6 +11,7 @@
   client: "",
   public: false,
   secret: false,
+  scanned-title-page: none,
   abstract,
   doc,
   bib: "",
@@ -33,6 +34,7 @@
     client: client,
     public: public,
     secret: secret,
+    scanned-title-page: scanned-title-page,
   )
   counter(page).update(1)
 
