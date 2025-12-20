@@ -38,20 +38,52 @@
   client: "",
   public: false,
   secret: false,
-  scanned-title-page: none,
+  scanned-signature-page: none,
 ) = {
-  grid(
-    columns: (1fr, 1fr),
-    rows: (auto, auto),
-    gutter: 3pt,
-    logo, [],
-    [], text(12pt, weight: "bold")[Informatik],
-  )
+  logo
+
+  align(center)[
+
+    #v(1fr)
+
+    #text(size: 14pt)[
+      Informatik
+      #linebreak()
+      Hochschule Luzern (Schweiz)
+    ]
+
+    #v(1.5fr)
+
+    #text(size: 24pt, weight: "bold")[#title]
+
+    #v(2fr)
+
+    #text(size: 16pt)[WIRTSCHAFTSPROJEKT]
+
+    #text(size: 11pt)[vorgelegt am Departement Informatik der Hochschule Luzern (Schweiz)]
+
+    #v(2fr)
+
+    #text(size: 11pt)[von]
+
+
+    #text(size: 15pt)[
+      #students.map(student => text(weight: "bold")[#student]).join(" und ")
+    ]
+
+    #v(1fr)
+
+    #text(size: 11pt)[von]
+
+    #text(size: 15pt)[Luzern (Schweiz)]
+
+    #v(2fr)
+  ]
   pagebreak()
 
 
-  if scanned-title-page != none {
-    scanned-title-page
+  if scanned-signature-page != none {
+    scanned-signature-page
   } else {
     text()[= Wirtschaftsprojekt an der Hochschule Luzern - Informatik]
     v(1em)
