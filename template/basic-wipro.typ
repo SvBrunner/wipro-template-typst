@@ -53,7 +53,7 @@
   )
   abstract
   pagebreak()
-  outline(depth: 3)
+  outline(title: "Inhaltsverzeichnis", depth: 3)
 
   set heading(numbering: "1.1.1", outlined: true)
   show heading: it => {
