@@ -67,7 +67,7 @@
   doc
 
   if (abbr != "" or bib != "" or imgol != "" or tabol != "") {
-    set heading(numbering: none)
+    set heading(numbering: none, outlined: false)
     show heading: it => {
       block(it.body)
     }
