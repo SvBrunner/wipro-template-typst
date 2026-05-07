@@ -1,5 +1,12 @@
 #import "template/basic-wipro.typ": *
 
+// For a bachelor thesis, use `basic-bachelor` instead of `basic-wipro`.
+// It accepts the same arguments and additionally supports:
+//
+// acknowledgements: [
+//   Vielen Dank an ...
+// ],
+
 #let abstract = [
   = Abstract
   Here you write the Abstract
@@ -89,5 +96,4 @@ Here is a code block:
 #import "template/code.typ": code
 // then you can use it like this:
 #code("sudo rm -rf / --no-preserve-root", lang: "sh")
-
 

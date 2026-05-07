@@ -4,6 +4,6 @@
     fill: luma(240),
     inset: 8pt,
     radius: 4pt,
-    raw(text, lang: lang, block: true)
+    raw(text, lang: lang, block: true),
   )
 }

@@ -1,6 +1,8 @@
 #import "title-page.typ": title-page
-#let basic-wipro(
+
+#let basic-document(
   logo: image,
+  document-kind: "Wirtschaftsprojekt",
   title: "",
   students: (),
   year: "",
@@ -12,6 +14,7 @@
   public: false,
   secret: false,
   scanned-signature-page: none,
+  acknowledgements: none,
   abstract,
   doc,
   bib: "",
@@ -24,6 +27,7 @@
   set heading(outlined: false)
   title-page(
     logo: logo,
+    document-kind: document-kind,
     title: title,
     students: students,
     year: year,
@@ -35,6 +39,7 @@
     public: public,
     secret: secret,
     scanned-signature-page: scanned-signature-page,
+    acknowledgements: acknowledgements,
   )
   counter(page).update(1)
 
@@ -66,7 +71,7 @@
 
   doc
 
-  if (abbr != "" or bib != "" or imgol != "" or tabol != "") {
+  if (abbr != "" or bib != "" or imgol != "" or tabol != "" or ai != "") {
     set heading(numbering: none, outlined: false)
     show heading: it => {
       block(it.body)
@@ -93,3 +98,91 @@
     }
   }
 }
+
+#let basic-wipro(
+  logo: image,
+  title: "",
+  students: (),
+  year: "",
+  institution: "",
+  study-program: "",
+  supervisor: "",
+  expert: "",
+  client: "",
+  public: false,
+  secret: false,
+  scanned-signature-page: none,
+  abstract,
+  doc,
+  bib: "",
+  abbr: "",
+  imgol: "",
+  tabol: "",
+  ai: "",
+) = basic-document(
+  logo: logo,
+  document-kind: "Wirtschaftsprojekt",
+  title: title,
+  students: students,
+  year: year,
+  institution: institution,
+  study-program: study-program,
+  supervisor: supervisor,
+  expert: expert,
+  client: client,
+  public: public,
+  secret: secret,
+  scanned-signature-page: scanned-signature-page,
+  abstract,
+  doc,
+  bib: bib,
+  abbr: abbr,
+  imgol: imgol,
+  tabol: tabol,
+  ai: ai,
+)
+
+#let basic-bachelor(
+  logo: image,
+  title: "",
+  students: (),
+  year: "",
+  institution: "",
+  study-program: "",
+  supervisor: "",
+  expert: "",
+  client: "",
+  public: false,
+  secret: false,
+  scanned-signature-page: none,
+  acknowledgements: none,
+  abstract,
+  doc,
+  bib: "",
+  abbr: "",
+  imgol: "",
+  tabol: "",
+  ai: "",
+) = basic-document(
+  logo: logo,
+  document-kind: "Bachelorarbeit",
+  title: title,
+  students: students,
+  year: year,
+  institution: institution,
+  study-program: study-program,
+  supervisor: supervisor,
+  expert: expert,
+  client: client,
+  public: public,
+  secret: secret,
+  scanned-signature-page: scanned-signature-page,
+  acknowledgements: acknowledgements,
+  abstract,
+  doc,
+  bib: bib,
+  abbr: abbr,
+  imgol: imgol,
+  tabol: tabol,
+  ai: ai,
+)
