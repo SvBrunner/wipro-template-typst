@@ -72,7 +72,7 @@
   doc
 
   if (abbr != "" or bib != "" or imgol != "" or tabol != "" or ai != "") {
-    set heading(numbering: none, outlined: false)
+    set heading(numbering: "A.1", outlined: true)
     show heading: it => {
       block(it.body)
     }
