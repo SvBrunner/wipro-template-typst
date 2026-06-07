@@ -100,7 +100,6 @@
   client: "",
   public: false,
   secret: false,
-  acknowledgements: none,
 ) = {
   text()[= #document-kind an der Hochschule Luzern - Informatik]
   v(1em)
@@ -141,13 +140,6 @@
     #signature(student: student)
     #v(1em)
   ]
-
-  if acknowledgements != none {
-    pagebreak()
-    text()[= Danksagung]
-    v(1em)
-    acknowledgements
-  }
 
   v(1fr)
 
@@ -200,9 +192,15 @@
       expert: expert,
       client: client,
       public: public,
-      secret: secret,
-      acknowledgements: acknowledgements,
+      secret: secret
     )
+  }
+  
+  if acknowledgements != none {
+    pagebreak()
+    text()[= Danksagung]
+    v(1em)
+    acknowledgements
   }
   pagebreak()
 }
